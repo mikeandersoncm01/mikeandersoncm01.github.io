@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mike Anderson Cruz Martínez — Ingeniería en Sistemas Informáticos</title>
+<meta name="description" content="Portafolio de Mike Anderson Cruz Martínez, egresado de Ingeniería en Sistemas Informáticos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1F2ED;
+    --paper-alt:#E7E6DC;
+    --ink:#16241C;
+    --ink-soft:#3E4B42;
+    --line:#D5D2C4;
+    --pitch:#2C5940;
+    --pitch-deep:#1F4230;
+    --gold:#B9812A;
+    --gold-soft:#EADFC7;
+    --max:920px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Sans 3', sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--pitch-deep);}
+  a:focus-visible, button:focus-visible{outline:3px solid var(--gold); outline-offset:2px;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+
+  .display{font-family:'Oswald', sans-serif; text-transform:uppercase; letter-spacing:0.02em;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    letter-spacing:0.14em;
+    font-size:13px;
+    text-transform:uppercase;
+    color:var(--paper);
+    background:var(--pitch);
+    padding:5px 14px 4px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{content:""; width:7px; height:7px; background:var(--gold); display:inline-block;}
+
+  section{padding:64px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+
+  /* HERO — ficha técnica */
+  header.hero{
+    border-bottom:4px solid var(--pitch);
+    background:
+      linear-gradient(180deg, rgba(44,89,64,0.04), rgba(44,89,64,0) 120px);
+  }
+  .hero-inner{padding:56px 0 40px;}
+  .hero-card{
+    border:1px solid var(--line);
+    background:var(--paper);
+    position:relative;
+  }
+  .hero-nameplate{
+    background:var(--ink);
+    color:var(--paper);
+    padding:10px 20px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 16px;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+  }
+  @media (max-width:480px){
+    .hero-nameplate{font-size:10.5px; letter-spacing:0.05em;}
+  }
+  .hero-nameplate span.dot{color:var(--gold);}
+  .hero-body{padding:32px 28px 30px;}
+  h1.name{
+    font-size:clamp(34px, 5vw, 52px);
+    margin:0 0 6px;
+    line-height:1.02;
+    color:var(--ink);
+  }
+  .role-line{
+    font-size:19px;
+    color:var(--pitch-deep);
+    font-weight:600;
+    margin:0 0 4px;
+  }
+  .tagline{
+    color:var(--ink-soft);
+    margin:0 0 24px;
+    font-size:16px;
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    border-top:1px dashed var(--line);
+    padding-top:16px;
+  }
+  .meta-row span{margin-right:24px; white-space:nowrap;}
+  .meta-row span:not(:last-child)::after{content:"·"; color:var(--gold); margin-left:24px; font-weight:700;}
+  .meta-row a{color:var(--ink-soft); text-decoration-color:var(--gold);}
+
+  /* PERFIL */
+  .lede{font-size:19px; max-width:64ch; color:var(--ink);}
+
+  /* PROYECTO */
+  .project-card{border:1px solid var(--line); background:#fff;}
+  .project-head{
+    background:var(--pitch);
+    color:var(--paper);
+    padding:20px 26px;
+  }
+  .project-head h3{
+    font-family:'Oswald', sans-serif;
+    margin:0 0 6px;
+    font-size:clamp(22px,3vw,30px);
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+  }
+  .project-head .meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--gold-soft);
+    letter-spacing:0.03em;
+  }
+  .project-body{padding:28px 26px 30px;}
+  .cols{display:flex; flex-wrap:wrap; margin-bottom:26px;}
+  .col{flex:1 1 260px; margin-right:28px;}
+  .col:last-child{margin-right:0;}
+  .col h4{
+    font-family:'Oswald', sans-serif;
+    font-size:14px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--pitch-deep);
+    margin:0 0 10px;
+    border-bottom:2px solid var(--gold);
+    display:inline-block;
+    padding-bottom:3px;
+  }
+  .col p{margin:0; color:var(--ink-soft); font-size:15.5px;}
+
+  .feature-list{margin:0 0 26px; padding:0; list-style:none;}
+  .feature-list li{
+    display:flex;
+    gap:10px;
+    padding:9px 0;
+    border-bottom:1px dotted var(--line);
+    font-size:15.5px;
+    color:var(--ink);
+  }
+  .feature-list li::before{content:"—"; color:var(--gold); font-weight:700; flex-shrink:0;}
+
+  .stack-row{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:30px;}
+  .chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    border:1px solid var(--pitch);
+    color:var(--pitch-deep);
+    padding:5px 11px;
+    background:var(--paper);
+  }
+
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:16px;
+  }
+  figure.shot{
+    margin:0;
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    display:flex;
+    flex-direction:column;
+  }
+  figure.shot img{
+    display:block;
+    width:100%;
+    height:190px;
+    object-fit:cover;
+    object-position:top center;
+    background:var(--paper-alt);
+    border-bottom:1px solid var(--line);
+  }
+  figure.shot.tall img{object-fit:contain; background:#fff;}
+  figure.shot figcaption{
+    padding:9px 12px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.02em;
+    color:var(--pitch-deep);
+  }
+  figure.shot figcaption::before{content:"▸ "; color:var(--gold);}
+
+  /* PRÓXIMAMENTE */
+  .teaser{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    border:1px dashed var(--pitch);
+    padding:18px 20px;
+    background:rgba(44,89,64,0.05);
+  }
+  .teaser .tag{
+    font-family:'Oswald', sans-serif;
+    font-size:12px;
+    letter-spacing:0.1em;
+    background:var(--gold);
+    color:var(--ink);
+    padding:3px 9px;
+    white-space:nowrap;
+    margin-top:2px;
+  }
+  .teaser p{margin:0; color:var(--ink-soft); font-size:15px;}
+
+  /* HABILIDADES — tabla de posiciones */
+  table.standings{width:100%; border-collapse:collapse;}
+  table.standings th{
+    text-align:left;
+    font-family:'Oswald', sans-serif;
+    font-size:12.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--paper);
+    background:var(--ink);
+    padding:10px 14px;
+  }
+  table.standings td{
+    padding:13px 14px;
+    border-bottom:1px solid var(--line);
+    font-size:15.5px;
+  }
+  table.standings tr:nth-child(even) td{background:var(--paper-alt);}
+  table.standings td.pos{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--gold);
+    font-weight:600;
+    width:36px;
+  }
+  .status{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    padding:3px 9px;
+    border:1px solid var(--pitch);
+    color:var(--pitch-deep);
+    white-space:nowrap;
+  }
+  .status.done{border-color:var(--gold); color:#8A5F1E;}
+
+  /* CONTACTO */
+  footer{
+    background:var(--ink);
+    color:var(--paper);
+  }
+  footer .wrap{padding:48px 28px 40px; text-align:center;}
+  footer h2{font-family:'Oswald', sans-serif; font-size:clamp(26px,4vw,38px); margin:0 0 10px; text-transform:uppercase;}
+  footer p{color:#C7CEC8; margin:0 0 20px;}
+  footer .links{display:flex; justify-content:center; flex-wrap:wrap; font-family:'IBM Plex Mono', monospace; font-size:14px;}
+  footer .links span{margin:0 18px; white-space:nowrap;}
+  footer .links span:not(:last-child)::after{content:"·"; color:var(--gold); margin-left:18px;}
+  footer a{color:var(--gold-soft);}
+  footer .fine{margin-top:30px; font-size:12.5px; color:#7C877E;}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-card">
+      <div class="hero-nameplate">
+        <span>FICHA TÉCNICA <span class="dot">·</span> PERFIL PROFESIONAL</span>
+        <span>SAN MIGUEL / LA UNIÓN, SV</span>
+      </div>
+      <div class="hero-body">
+        <h1 class="name display">Mike Anderson<br>Cruz Martínez</h1>
+        <p class="role-line">Egresado de Ingeniería en Sistemas Informáticos</p>
+        <p class="tagline">Análisis, desarrollo y gestión de la información</p>
+        <div class="meta-row">
+          <span>La Unión, El Salvador</span>
+          <span><a href="https://github.com/mikeandersoncm01" target="_blank" rel="noopener">github.com/mikeandersoncm01</a></span>
+          <span><a href="mailto:mike.anderson.cm@gmail.com">mike.anderson.cm@gmail.com</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="perfil">
+  <div class="wrap">
+    <span class="eyebrow">Perfil</span>
+    <p class="lede">Egresado de Ingeniería en Sistemas Informáticos (Universidad de El Salvador, Facultad Multidisciplinaria Oriental), en trámite de Expediente de Graduación. Formación en análisis y diseño de sistemas, bases de datos relacionales y ofimática, actualmente fortaleciendo control de versiones (Git) y programación (Python). Interesado en roles de desarrollo y gestión de información, con atención al detalle y enfoque en procesos.</p>
+  </div>
+</section>
+
+<section id="proyecto">
+  <div class="wrap">
+    <span class="eyebrow">Proyecto de tesis</span>
+    <div class="project-card">
+      <div class="project-head">
+        <h3>Plataforma de gestión de torneos — ADFA San Miguel</h3>
+        <div class="meta">EQUIPO DE 4 · ING. SISTEMAS INFORMÁTICOS, UES-FMO · 2025–2026 · CULMINADO</div>
+      </div>
+      <div class="project-body">
+
+        <div class="cols">
+          <div class="col">
+            <h4>El problema</h4>
+            <p>La Asociación Departamental de Fútbol Aficionado de San Miguel (ADFA) gestionaba jugadores, equipos, torneos y estadísticas de forma manual, en papel o Excel: inscripciones lentas y sin validación (con riesgo de duplicados), conflictos de horario y cancha, y estadísticas y sanciones sin un registro centralizado.</p>
+          </div>
+          <div class="col">
+            <h4>La solución</h4>
+            <p>Una plataforma compuesta por sitio web, aplicación móvil y una API REST, desarrollada en equipo para un cliente real bajo metodología Scrum, con entregas por sprint validadas directamente con ADFA. Impacto estimado: alrededor de 6,000 personas entre jugadores, directivos, árbitros y familias.</p>
+          </div>
+        </div>
+
+        <h4 style="margin-bottom:12px;">Funcionalidad</h4>
+        <ul class="feature-list">
+          <li>Inscripción de jugadores y equipos con validación para evitar duplicados</li>
+          <li>Programación de partidos con verificación automática de disponibilidad de cancha</li>
+          <li>Registro de estadísticas (goles, tarjetas, minutos) y tabla de posiciones</li>
+          <li>Gestión de sanciones y apelaciones disciplinarias</li>
+          <li>Gestión de árbitros, con generación de carnets</li>
+          <li>Panel administrativo con roles y permisos</li>
+        </ul>
+
+        <h4 style="margin-bottom:12px;">Stack</h4>
+        <div class="stack-row">
+          <span class="chip">Laravel 12</span>
+          <span class="chip">PHP 8.3</span>
+          <span class="chip">Livewire</span>
+          <span class="chip">Blade</span>
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">Flutter</span>
+          <span class="chip">Bootstrap</span>
+          <span class="chip">GitHub Actions (CI/CD)</span>
+          <span class="chip">VPS · Hostinger</span>
+        </div>
+
+        <h4 style="margin-bottom:12px;">Capturas</h4>
+        <div class="gallery">
+          <figure class="shot">
+            <img src="img/control-inscrip.png" alt="Panel administrativo: control y validación de inscripciones de equipos" loading="lazy">
+            <figcaption>Panel administrativo — validación de inscripciones</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="img/wizard.png" alt="Asistente de inscripción de equipos con checklist de documentos obligatorios" loading="lazy">
+            <figcaption>Inscripción de equipos — expediente digital</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="img/programacion-partidos.png" alt="Módulo de reprogramación de partidos" loading="lazy">
+            <figcaption>Partidos — solicitudes de reprogramación</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="img/dashboard1.png" alt="Portal del representante con seguimiento de expedientes de inscripción" loading="lazy">
+            <figcaption>Portal del representante — mis expedientes</figcaption>
+          </figure>
+          <figure class="shot tall">
+            <img src="img/app3.png" alt="App móvil: informe del partido con goles, tarjetas y validaciones" loading="lazy">
+            <figcaption>App móvil — informe arbitral del partido</figcaption>
+          </figure>
+          <figure class="shot tall">
+            <img src="img/app1.png" alt="App móvil: listado de partidos asignados al árbitro" loading="lazy">
+            <figcaption>App móvil — partidos asignados</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="img/portal-web-publico.png" alt="Portal público de ADFA con torneos y estadísticas" loading="lazy">
+            <figcaption>Portal público — torneos y estadísticas</figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proximamente">
+  <div class="wrap">
+    <span class="eyebrow">Próximamente</span>
+    <div class="teaser">
+      <span class="tag">EN DESARROLLO</span>
+      <p>API REST propia con FastAPI/Flask y base de datos relacional, construida para practicar el stack backend de forma independiente. El repositorio se agrega aquí en cuanto quede lista.</p>
+    </div>
+  </div>
+</section>
+
+<section id="habilidades">
+  <div class="wrap">
+    <span class="eyebrow">Habilidades</span>
+    <table class="standings">
+      <thead>
+        <tr><th>#</th><th>Área</th><th>Estado</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="pos">01</td><td>Análisis y diseño de sistemas</td><td><span class="status done">Formación académica</span></td></tr>
+        <tr><td class="pos">02</td><td>Bases de datos relacionales</td><td><span class="status">En fortalecimiento</span></td></tr>
+        <tr><td class="pos">03</td><td>Control de versiones (Git y GitHub)</td><td><span class="status">En fortalecimiento</span></td></tr>
+        <tr><td class="pos">04</td><td>Programación (Python)</td><td><span class="status">En fortalecimiento</span></td></tr>
+        <tr><td class="pos">05</td><td>Microsoft Office (Word, Excel, PowerPoint)</td><td><span class="status done">Certificado</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h2 class="display">¿Hablamos?</h2>
+    <p>Disponible para una primera oportunidad formal en desarrollo y gestión de información.</p>
+    <div class="links">
+      <span><a href="mailto:mike.anderson.cm@gmail.com">mike.anderson.cm@gmail.com</a></span>
+      <span><a href="https://github.com/mikeandersoncm01" target="_blank" rel="noopener">github.com/mikeandersoncm01</a></span>
+      <span>La Unión, El Salvador</span>
+    </div>
+    <p class="fine">Mike Anderson Cruz Martínez — Ingeniería en Sistemas Informáticos, UES-FMO</p>
+  </div>
+</footer>
+
+</body>
+</html>
